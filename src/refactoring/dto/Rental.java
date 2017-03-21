@@ -18,38 +18,9 @@ public class Rental {
 	}
 	
 	public double getCharge(){
-		double result = 0; // 비디오물당 대여료
-		// 1. 일반물 (2일) 2000원, 일일초과 1500 적립1
-		// 2. 아동물 (3일) 1500원, 일일초과 1500 적립1
-		// 3. 최신물 (1일) 3000원, 일일초과 3000 적립1+1
-		switch (movie.getPriceCode()) {
-		case Movie.REGULAR:
-			result = 2000;
-			if (daysRented > 2) {
-				result += (daysRented - 2) * 1500;
-			}
-			break;
-		case Movie.NEW_RELEASE:
-			result = daysRented * 3000;
-
-			break;
-		case Movie.CHILDREN:
-			result = 1500;
-			if (daysRented > 3) {
-				result += (daysRented - 3) * 1500;
-			}
-			break;
-		}
-		return result;
+		return getMovie().getCharge(daysRented);
 	}
 	int getfrequentRenterPoints() {
-		int frequentRenterPoints = 0;
-		frequentRenterPoints++;
-		if(getMovie().getPriceCode()==Movie.NEW_RELEASE && getDaysRented() > 1){
-			return 2;
-		}else{
-			return 1;
-		}
-		
+		return getMovie().getfrequentRenterPoints(getDaysRented());
 	}
 }

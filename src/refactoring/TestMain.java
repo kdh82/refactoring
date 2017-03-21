@@ -30,6 +30,9 @@ public class TestMain {
 		c2.addRental(r2);
 		c2.addRental(r4);
 		c2.addRental(r6);
+		System.out.println(c1.statment());
+		System.out.println("============================");
+		System.out.println(c2.statment());
 		
 		System.out.println(c1.htmlStatment());
 		System.out.println("============================");
