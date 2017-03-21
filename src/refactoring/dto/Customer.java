@@ -9,7 +9,6 @@ public class Customer {
 	
 	
 	public Customer(String name) {
-		super();
 		this.name = name;
 		this.rentals = new ArrayList<>();
 	}
